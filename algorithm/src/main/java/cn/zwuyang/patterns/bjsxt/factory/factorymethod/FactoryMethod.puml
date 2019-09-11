@@ -1,0 +1,23 @@
+@startuml
+
+interface Car {
+    run()
+}
+
+interface Factory {
+    Car createCar();
+}
+
+class Byd {
+    run()
+}
+
+class CarFactory {
+    Car createCar();
+}
+
+Car <|-- Byd
+Factory <|-- CarFactory
+Byd <.. CarFactory
+
+@enduml

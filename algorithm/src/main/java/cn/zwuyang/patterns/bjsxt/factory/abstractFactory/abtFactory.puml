@@ -1,0 +1,64 @@
+@startuml
+package "内部" #DDDDDD {
+    interface Engine {
+        void: run()
+    }
+
+    class LuxuryEngine {
+        void: run()
+    }
+
+    class LowEngine {
+        void: run()
+    }
+
+    interface Tyre {
+        void: revolve()
+    }
+
+    class LuxuryTyre {
+        void: revolve()
+    }
+
+    class LowTyre {
+        void: revolve()
+    }
+
+    interface Factory {
+        Engine: createEngine();
+        Tyre: createTyre();
+    }
+
+    class LuxuryFactory {
+        Engine: createEngine();
+        Tyre: createTyre();
+    }
+
+    class LowFactory {
+        Engine: createEngine();
+        Tyre: createTyre();
+    }
+
+}
+
+Engine <|.. LuxuryEngine
+Engine <|.. LowEngine
+Tyre <|.. LuxuryTyre
+Tyre <|.. LowTyre
+Factory <|.. LuxuryFactory
+Factory <|.. LowFactory
+
+LuxuryEngine <.. LuxuryFactory
+LuxuryTyre <.. LuxuryFactory
+LowEngine <.. LowFactory
+LowTyre <.. LowFactory
+
+class Client
+
+LuxuryFactory <-- Client
+LowFactory <-- Client
+note right on link #gred
+	Client调用,eg:Engine e = new LuxuryCarFactory().createEngine();
+end note
+
+@enduml

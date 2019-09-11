@@ -1,0 +1,19 @@
+@startuml
+
+package "内部" #DDDDDD {
+    class Prototype {
+        Prototype : clone();
+    }
+
+    class ConcretePrototype {
+
+    }
+
+    Prototype <|-- ConcretePrototype
+}
+
+class Client
+
+Prototype <.. Client
+
+@enduml

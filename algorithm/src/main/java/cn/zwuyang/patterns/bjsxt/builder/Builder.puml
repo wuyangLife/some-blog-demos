@@ -1,0 +1,29 @@
+@startuml
+package "内部" #DDDDDD {
+    class Director {
+        builder : Builder
+        Product : directProduct();
+    }
+
+    interface Builder {
+        builderPartA();
+        builderPartB();
+        builderPartC();
+    }
+
+    class ConcreteBuilder {
+        builderPartA();
+        builderPartB();
+        builderPartC();
+    }
+
+    class Product
+}
+
+Director *-- Builder
+Builder <|.. ConcreteBuilder
+Product <.. ConcreteBuilder
+
+class Client
+Director <.. Client
+@enduml
