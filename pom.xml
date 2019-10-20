@@ -19,6 +19,8 @@
 
 	<modules>
 		<module>validator-demo</module>
+		<module>algorithm</module>
+		<module>dubbo-demo</module>
 	</modules>
 
 	<properties>
